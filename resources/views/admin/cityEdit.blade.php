@@ -13,11 +13,6 @@
             <div class="card">
                 <div class="card-header">Edit State</div>
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
                     @if(session()->has('alert-success'))
                         <div class="alert alert-success" id="city_alert">
                             {{ session()->get('alert-success') }}
