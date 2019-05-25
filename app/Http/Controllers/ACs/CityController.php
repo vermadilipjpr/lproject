@@ -17,7 +17,7 @@ class CityController extends Controller
      */
     public function index()
     {
-		$cities = DB::table("cities")->join("states","cities.stateid","=","states.id")->select("states.statename","cities.id","cities.cityname")->get();
+		$cities = DB::table("cities")->join("states", "cities.stateid", "=", "states.id")->select("states.statename", "cities.id", "cities.cityname")->get();
         return view("admin.cityList",compact('cities'));
     }
 
@@ -41,13 +41,7 @@ class CityController extends Controller
     public function store(Request $request)
     {
         /* Validate data before saving. */
-		request()->validate(
-			[
-				"state_id"	=> ["required"],
-				"city_name"	=> ["required", "max:150"],
-			], 
-			CityController::messages()
-			);
+		request()->validate([ "state_id"	=> ["required"], "city_name"	=> ["required", "max:150"], ], CityController::messages());
 		/* Save now. */
 		$newsevents = new City;
 		$newsevents->stateid = $request->state_id;
@@ -65,7 +59,6 @@ class CityController extends Controller
 	{
 		return [
 			'state_id.required' => 'Please enter State Name.',
-			//'state_id.integer' => 'Please enter integer value only',
 			'city_name.required' => 'Please enter City Name.',
 			'city_name.max' => 'Maximum 150 characters are allowed.',
 		];
