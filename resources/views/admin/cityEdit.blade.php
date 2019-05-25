@@ -19,7 +19,7 @@
                         </div>
                     @endif
                     @if(session()->has('alert-success'))
-                        <div class="alert alert-success">
+                        <div class="alert alert-success" id="city_alert">
                             {{ session()->get('alert-success') }}
                         </div>
                     @endif
