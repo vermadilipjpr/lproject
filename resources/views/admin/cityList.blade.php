@@ -23,7 +23,9 @@
                             {{ session()->get('alert-error') }}
                         </div>
                     @endif
+                    <div>
                     	{{$cities}}
+                        </div>
                         <table border="0" cellpadding="10" cellspacing="10">
                         
                         </table>
