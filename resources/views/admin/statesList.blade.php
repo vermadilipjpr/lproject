@@ -1,4 +1,4 @@
-@extends('layouts.appadmin')
+@extends('layouts.adminlayout')
 @section('content')
 <div class="container">
 	<ul class="crud_navigation">
@@ -24,11 +24,13 @@
                         </div>
                     @endif
                     	<table border="0" cellpadding="10" cellspacing="10">
+                        <tr><th>State</th><th>Action</th></tr>
                         @foreach ($all_records as $single_record)
                             <tr>
                                 <td class="table-text">
                                     <div>{{ $single_record->statename }}</div>
                                 </td>
+                                
                                 <td>
                                     <a href="{{ route('statemaster.edit', $single_record->id) }}">Edit</a> | 
                                     <a href="#" class="deleteme" data-id="{{ $single_record->id }}">Delete</a>
